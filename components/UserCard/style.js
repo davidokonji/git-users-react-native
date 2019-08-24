@@ -6,10 +6,7 @@ export default styles = StyleSheet.create({
         alignItems: 'center',
         alignSelf: 'center',
         width: '90%',
-        height: '50%',
         borderRadius: 10,
-        position: 'absolute',
-        bottom: 50,
         borderWidth: 2
     },
     profileImage: {
@@ -35,6 +32,7 @@ export default styles = StyleSheet.create({
         fontFamily: "Courier New",
         fontStyle: 'normal',
         fontSize: 18,
-        textDecorationLine: 'underline'
+        textDecorationLine: 'underline',
+        marginVertical: 15
     }
 });

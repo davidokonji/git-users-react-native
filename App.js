@@ -5,7 +5,8 @@ import {
   View,
   Text,
   Image,
-  TouchableHighlight
+  TouchableHighlight,
+  ScrollView
 } from 'react-native';
 import UserCard from './components/UserCard/UserCard';
 import axios from './config/axiosConfig';
@@ -47,7 +48,7 @@ export default function App() {
     } catch (error) {
       return setError({
         error: true,
-        message: <Text style={{alignSelf: 'center', marginVertical: 10}}>Username {username} does not exist</Text>
+        message: <Text style={{alignSelf: 'center', color: 'red'}}>user {username} does not exist</Text>
       });
     }
   };
@@ -67,11 +68,13 @@ export default function App() {
     });
   };
   return (
+    <ScrollView>
     <View style={styles.container}>
+    <View>
       <View>
         <Image
          source={require('./assets/github.jpg')}
-         style={{width: 100, height: 100, alignSelf: 'center', marginTop: 90}}
+         style={{width: 100, height: 100, alignSelf: 'center', marginTop: 50}}
         />
       </View>
       <View style={styles.appSection}>
@@ -90,9 +93,10 @@ export default function App() {
           <Text style={styles.btnText}>search user</Text>
         </View>
       </TouchableHighlight>
+      </View>
       {
         error.error ? (
-          <Text>{error.message}</Text>
+          <View style={{marginVertical: 10}}>{error.message}</View>
         ) 
         :(
           user.searched && (
@@ -107,6 +111,7 @@ export default function App() {
         )
       }
     </View>
+    </ScrollView>
   );
 }
 
